@@ -12,7 +12,7 @@ const customParams = {
 
 const createRequest = (input, callback) => {
   
-  const url = `http://3.141.162.75:5000/api/${input.data.endpoint}`
+  const url = `http://<host>/api/${input.data.endpoint}`
 
   const config = {
     url

@@ -8,7 +8,7 @@ const customError = (data) => {
 const createRequest = (input, callback) => {
     console.log("dataendpoint",input.data.endpoint)
     const jobRunID = input.id;
-    const url      = `http://18.117.124.88:5000/api/${input.data.endpoint}`
+    const url      = `http://<host>:5000/api/${input.data.endpoint}`
     console.log("Testinginititit",input)
     // https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD
     const params = {
