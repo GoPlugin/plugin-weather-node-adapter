@@ -11,12 +11,8 @@ const customParams = {
 }
 
 const createRequest = (input, callback) => {
-  console.log("inpututt",input.id, input.data.endpoint)
-  console.log("endpoint",input.data.endpoint)
-  console.log("envCheck",input.data.envCheck)
-
-  //endpoint -> getlatesttemp
-  const url = `http://3.14.27.65:5000/api/${input.data.endpoint}`
+  
+  const url = `http://3.141.162.75:5000/api/${input.data.endpoint}`
 
   const config = {
     url
@@ -29,14 +25,18 @@ const createRequest = (input, callback) => {
   }
   Requester.request(config, customError)
     .then(response => {
-      if(envCheck=="WindDirection"){
+      console.log("response is sisis",response)
+      if(input.data.envCheck=="WindDirection"){
         var resultData = response.data[0]['windDirection'];
-      }else if(envCheck=="Temperature"){
+      }else if(input.data.envCheck=="Temperature"){
         var resultData = response.data[0]['tempC'];
-      }else if(envCheck=="WindChill"){
+      }else if(input.data.envCheck=="WindChill"){
         var resultData = response.data[0]['windChillC'];
       }
       response.data.result =resultData.toString();
+
+      console.log("resultData is",resultData);
+      console.log("response is",response.data.result);
       const res = {
         data: {
                 "result": response.data.result.toString()
